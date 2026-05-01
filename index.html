@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Les Pirates Morphomagie</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Les Pirates — Morphomagie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600&family=Lexend:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Lexend',sans-serif;min-height:100vh;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;}
+    .bg{position:fixed;inset:0;background:url('bateau-pirates.png.png') center center/cover no-repeat;z-index:0;}
+    .parchemin-zone{position:fixed;right:4%;top:50%;transform:translateY(-50%);width:38%;max-width:480px;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .parchemin-inner{position:relative;width:100%;padding:10% 12%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+    .parchemin-inner::before{content:'';position:absolute;inset:0;background:url('parchemin.png.png') center center/100% 100% no-repeat;z-index:-1;}
+    .titre{font-family:'Cinzel Decorative',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:#3d1a00;line-height:1.1;margin-bottom:4px;}
+    .titre-sous{font-family:'Cinzel',serif;font-size:clamp(0.7rem,1.2vw,0.95rem);color:#7a4a1a;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:20px;}
+    .separateur{display:flex;align-items:center;gap:8px;width:80%;margin:0 auto 20px;}
+    .sep-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,#8B5E3C,transparent);}
+    .sep-losange{width:6px;height:6px;background:#8B5E3C;transform:rotate(45deg);flex-shrink:0;}
+    .description{font-family:'Cinzel',serif;font-size:clamp(0.65rem,1vw,0.8rem);color:#6b3a10;line-height:1.6;margin-bottom:24px;letter-spacing:0.05em;}
+    .bouton{font-family:'Cinzel',serif;font-weight:600;font-size:clamp(0.8rem,1.2vw,1rem);letter-spacing:0.15em;text-transform:uppercase;color:#fff8e7;background:linear-gradient(135deg,#8B3A00,#6b2a00);border:2px solid #F5A623;padding:14px 36px;border-radius:2px;cursor:pointer;box-shadow:0 4px 20px rgba(139,58,0,0.5);transition:all 0.25s;margin-bottom:20px;}
+    .bouton:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(139,58,0,0.7);}
+    .iles-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;width:90%;}
+    .ile-badge{font-family:'Cinzel',serif;font-size:clamp(0.55rem,0.85vw,0.7rem);letter-spacing:0.08em;color:#5a2e00;border:1px solid rgba(139,94,60,0.4);padding:4px 10px;border-radius:2px;background:rgba(245,222,179,0.4);}
+    .perroquet{position:fixed;bottom:20px;left:20px;width:clamp(80px,10vw,130px);z-index:20;animation:sautiller 3s ease-in-out infinite;filter:drop-shadow(2px 4px 8px rgba(0,0,0,0.4));}
+    @keyframes sautiller{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-10px) rotate(2deg);}}
+    .capitaine{position:fixed;bottom:0px;left:42%;width:clamp(100px,12vw,160px);z-index:20;filter:drop-shadow(2px 4px 8px rgba(0,0,0,0.4));animation:flotter 4s ease-in-out infinite;}
+    @keyframes flotter{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+    @media(max-width:768px){.parchemin-zone{right:50%;transform:translate(50%,-50%);width:85%;}.capitaine{display:none;}}
+  </style>
 </head>
 <body>
-  <h1>🏴‍☠️ Les Pirates Morphomagie</h1>
-  <p>L'aventure commence bientôt !</p>
+  <div class="bg"></div>
+  <div class="parchemin-zone">
+    <div class="parchemin-inner">
+      <div class="titre">Les Pirates</div>
+      <div class="titre-sous">Morphomagie · L'académie des mots</div>
+      <div class="separateur"><div class="sep-line"></div><div class="sep-losange"></div><div class="sep-line"></div></div>
+      <div class="description">10 îles · 120 défis<br>une aventure pédagogique</div>
+      <button class="bouton">Embarquer</button>
+      <div class="iles-grid">
+        <div class="ile-badge">Vocabulaire</div>
+        <div class="ile-badge">Syllabes</div>
+        <div class="ile-badge">Phonèmes</div>
+        <div class="ile-badge">Syntaxe</div>
+        <div class="ile-badge">Accords</div>
+        <div class="ile-badge">Grand Bilan</div>
+      </div>
+    </div>
+  </div>
+  <img class="perroquet" src="perroquet.png.png" alt="perroquet guide"/>
+  <img class="capitaine" src="capitaine.png.png" alt="capitaine pirate"/>
 </body>
+</html>
