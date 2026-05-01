@@ -15,7 +15,6 @@
       z-index:0;
     }
 
-    /* ZONE DROITE — parchemin + texte */
     .zone-droite{
       position:fixed;
       right:2%;
@@ -26,10 +25,10 @@
       z-index:10;
     }
 
-    /* PARCHEMIN comme vraie image */
     .parchemin-wrapper{
       position:relative;
       width:100%;
+      mix-blend-mode:multiply;
     }
 
     .parchemin-wrapper img.parchemin-img{
@@ -38,7 +37,6 @@
       display:block;
     }
 
-    /* TEXTE positionné par dessus le parchemin */
     .parchemin-contenu{
       position:absolute;
       top:15%;
@@ -50,6 +48,7 @@
       align-items:center;
       justify-content:center;
       text-align:center;
+      mix-blend-mode:normal;
     }
 
     .titre{
@@ -117,22 +116,19 @@
       background:rgba(245,222,179,0.3);
     }
 
-    /* CAPITAINE — petite, entre bateau et parchemin */
-    .capitaine{
+    .pirate{
       position:fixed;
       bottom:0;
-      left:52%;
-      transform:translateX(-50%);
-      width:clamp(70px,7vw,110px);
+      left:54%;
+      width:clamp(80px,8vw,120px);
       z-index:20;
       animation:flotter 4s ease-in-out infinite;
     }
     @keyframes flotter{
-      0%,100%{transform:translateX(-50%) translateY(0);}
-      50%{transform:translateX(-50%) translateY(-8px);}
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-8px);}
     }
 
-    /* PERROQUET — petit, coin gauche */
     .perroquet{
       position:fixed;
       bottom:0;
@@ -148,7 +144,7 @@
 
     @media(max-width:768px){
       .zone-droite{right:50%;transform:translate(50%,-50%);width:88%;}
-      .capitaine{display:none;}
+      .pirate{display:none;}
     }
   </style>
 </head>
@@ -180,8 +176,7 @@
     </div>
   </div>
 
-  <img class="capitaine" src="capitaine.png.png" alt="capitaine"/>
+  <img class="pirate" src="pirate.png.png" alt="pirate"/>
   <img class="perroquet" src="perroquet.png.png" alt="perroquet"/>
 </body>
 </html>
-
