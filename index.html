@@ -8,160 +8,37 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     body{min-height:100vh;overflow:hidden;position:relative;}
-
-    .bg{
-      position:fixed;inset:0;
-      background:url('bateau-pirate.png.png') center center/cover no-repeat;
-      z-index:0;
-    }
-
-    .zone-droite{
-      position:fixed;
-      right:2%;
-      top:50%;
-      transform:translateY(-50%);
-      width:42%;
-      max-width:520px;
-      z-index:10;
-    }
-
-    .parchemin-wrapper{
-      position:relative;
-      width:100%;
-      mix-blend-mode:multiply;
-    }
-
-    .parchemin-wrapper img.parchemin-img{
-      width:100%;
-      height:auto;
-      display:block;
-    }
-
-    .parchemin-contenu{
-      position:absolute;
-      top:15%;
-      left:12%;
-      right:12%;
-      bottom:12%;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      mix-blend-mode:normal;
-    }
-
-    .titre{
-      font-family:'Cinzel Decorative',serif;
-      font-size:clamp(1.6rem,3vw,2.8rem);
-      font-weight:900;
-      color:#3d1a00;
-      line-height:1.1;
-      margin-bottom:4px;
-    }
-
-    .titre-sous{
-      font-family:'Cinzel',serif;
-      font-size:clamp(0.55rem,0.9vw,0.75rem);
-      color:#7a4a1a;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      margin-bottom:12px;
-    }
-
-    .separateur{
-      display:flex;align-items:center;gap:8px;
-      width:75%;margin:0 auto 12px;
-    }
+    .bg{position:fixed;inset:0;background:url('bateau-pirate.png.png') center center/cover no-repeat;z-index:0;}
+    .zone-droite{position:fixed;right:2%;top:50%;transform:translateY(-50%);width:55%;max-width:680px;z-index:10;}
+    .parchemin-wrapper{position:relative;width:100%;mix-blend-mode:multiply;}
+    .parchemin-wrapper img.parchemin-img{width:100%;height:auto;display:block;}
+    .parchemin-contenu{position:absolute;top:15%;left:12%;right:12%;bottom:12%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;mix-blend-mode:normal;}
+    .titre{font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:900;color:#3d1a00;line-height:1.1;margin-bottom:4px;}
+    .titre-sous{font-family:'Cinzel',serif;font-size:clamp(0.6rem,1vw,0.85rem);color:#7a4a1a;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;}
+    .separateur{display:flex;align-items:center;gap:8px;width:75%;margin:0 auto 12px;}
     .sep-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,#8B5E3C,transparent);}
     .sep-losange{width:5px;height:5px;background:#8B5E3C;transform:rotate(45deg);}
-
-    .description{
-      font-family:'Cinzel',serif;
-      font-size:clamp(0.55rem,0.85vw,0.7rem);
-      color:#6b3a10;
-      line-height:1.6;
-      margin-bottom:14px;
-    }
-
-    .bouton{
-      font-family:'Cinzel',serif;
-      font-weight:600;
-      font-size:clamp(0.7rem,1vw,0.9rem);
-      letter-spacing:0.15em;
-      text-transform:uppercase;
-      color:#fff8e7;
-      background:linear-gradient(135deg,#8B3A00,#6b2a00);
-      border:2px solid #F5A623;
-      padding:10px 28px;
-      border-radius:2px;
-      cursor:pointer;
-      transition:all 0.25s;
-      margin-bottom:12px;
-    }
+    .description{font-family:'Cinzel',serif;font-size:clamp(0.6rem,0.9vw,0.8rem);color:#6b3a10;line-height:1.6;margin-bottom:14px;}
+    .bouton{font-family:'Cinzel',serif;font-weight:600;font-size:clamp(0.8rem,1.1vw,1rem);letter-spacing:0.15em;text-transform:uppercase;color:#fff8e7;background:linear-gradient(135deg,#8B3A00,#6b2a00);border:2px solid #F5A623;padding:12px 32px;border-radius:2px;cursor:pointer;transition:all 0.25s;margin-bottom:12px;}
     .bouton:hover{transform:translateY(-2px);}
-
-    .iles-grid{
-      display:flex;flex-wrap:wrap;justify-content:center;gap:4px;
-      width:95%;
-    }
-    .ile-badge{
-      font-family:'Cinzel',serif;
-      font-size:clamp(0.45rem,0.7vw,0.6rem);
-      letter-spacing:0.06em;
-      color:#5a2e00;
-      border:1px solid rgba(139,94,60,0.4);
-      padding:3px 7px;
-      border-radius:2px;
-      background:rgba(245,222,179,0.3);
-    }
-
-    .pirate{
-      position:fixed;
-      bottom:0;
-      left:54%;
-      width:clamp(80px,8vw,120px);
-      z-index:20;
-      animation:flotter 4s ease-in-out infinite;
-    }
-    @keyframes flotter{
-      0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-8px);}
-    }
-
-    .perroquet{
-      position:fixed;
-      bottom:0;
-      left:1%;
-      width:clamp(55px,6vw,90px);
-      z-index:20;
-      animation:sautiller 3s ease-in-out infinite;
-    }
-    @keyframes sautiller{
-      0%,100%{transform:translateY(0) rotate(-2deg);}
-      50%{transform:translateY(-8px) rotate(2deg);}
-    }
-
-    @media(max-width:768px){
-      .zone-droite{right:50%;transform:translate(50%,-50%);width:88%;}
-      .pirate{display:none;}
-    }
+    .iles-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:5px;width:95%;}
+    .ile-badge{font-family:'Cinzel',serif;font-size:clamp(0.5rem,0.75vw,0.68rem);letter-spacing:0.06em;color:#5a2e00;border:1px solid rgba(139,94,60,0.4);padding:3px 8px;border-radius:2px;background:rgba(245,222,179,0.3);}
+    .pirate{position:fixed;bottom:0;left:54%;width:clamp(80px,8vw,120px);z-index:20;animation:flotter 4s ease-in-out infinite;}
+    @keyframes flotter{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+    .perroquet{position:fixed;bottom:0;left:1%;width:clamp(55px,6vw,90px);z-index:20;animation:sautiller 3s ease-in-out infinite;}
+    @keyframes sautiller{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-8px) rotate(2deg);}}
+    @media(max-width:768px){.zone-droite{right:50%;transform:translate(50%,-50%);width:88%;}.pirate{display:none;}}
   </style>
 </head>
 <body>
   <div class="bg"></div>
-
   <div class="zone-droite">
     <div class="parchemin-wrapper">
       <img class="parchemin-img" src="parchemin.png.png" alt="parchemin"/>
       <div class="parchemin-contenu">
         <div class="titre">Les Pirates</div>
         <div class="titre-sous">Morphomagie · L'académie des mots</div>
-        <div class="separateur">
-          <div class="sep-line"></div>
-          <div class="sep-losange"></div>
-          <div class="sep-line"></div>
-        </div>
+        <div class="separateur"><div class="sep-line"></div><div class="sep-losange"></div><div class="sep-line"></div></div>
         <div class="description">10 îles · 120 défis<br>une aventure pédagogique</div>
         <button class="bouton">Embarquer</button>
         <div class="iles-grid">
@@ -175,7 +52,6 @@
       </div>
     </div>
   </div>
-
   <img class="pirate" src="pirate.png.png" alt="pirate"/>
   <img class="perroquet" src="perroquet.png.png" alt="perroquet"/>
 </body>
